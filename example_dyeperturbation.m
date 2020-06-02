@@ -45,6 +45,11 @@ R     = DATA(:,36);       % The theoretical absorbance ratio from the pH with th
 
 
 %%%%%Analyze
+MaxdpH = max(dpH);
+MindpH = min(dpH);
+ABS    = abs(dpH);
+No_perturbation = IntpH(find(ABS == min(ABS)));
+
 figure; clf
 hold on
 scatter(IntpH,dpH,15,TA,'filled') 
@@ -54,20 +59,9 @@ xlim([7.0 8.5])
 xlabel('seawater pH'); ylabel('  \Delta pH (seawater pH with dye addition - seawater pH)')
 c = colorbar('northoutside')
 c.Label.String = 'TA (\mumol/kg)';
-
-MaxdpH = max(dpH);
-MindpH = min(dpH);
-ABS    = abs(dpH);
-No_perturbation = IntpH(find(ABS == min(ABS)));
-
-titles = [" Max dpH " " Min dpH " " 0 dpH "];
-values = [MaxdpH MindpH No_perturbation];
-result = [titles; values];
-result = pad(result,'left');
-result = join(result);
-fprintf('%s\n', result);
+result = {['Max dpH =', num2str(MaxdpH)], ['Min dpH =', num2str(MindpH)],['0 dpH =',num2str(No_perturbation)]};
 text(8.0,MaxdpH-0.0005,['Dye S =' ,num2str(dyeS),' , ','Dye pH =', num2str(dyepH)],'Fontsize',15)
-text(7.05,MindpH+0.0005,result,'Fontsize',15)
+text(7.05,MindpH+0.001,result,'Fontsize',15)
 hold off
 
 
