@@ -5,7 +5,7 @@
 %      and the equilibrium move with the mCP indicator addition. The mCP
 %      characteriztion parameters are from :
 %%%%   Mueller, J.D. and Rehder, G., 2018. Metrology of pH measurements 
-%      in Brackish Waters—Part 2: experimental characterization of 
+%      in Brackish Watersï¿½Part 2: experimental characterization of 
 %      purified meta-Cresol purple for spectrophotometric pHT measurements. 
 %      Frontiers in Marine Science, 5, p.177.
 %%%%   Liu, X., Patsavas, M.C. and Byrne, R.H., 2011. Purification and characterization of 
@@ -93,7 +93,7 @@
 %
 %   (**) Each element must be an integer, 
 %        indicating the mCP K1 K2 dissociation and e1 e2 e3 molar absorptivity that are to be used:
-%   1 = Müller and Rehder,2018						        T:    5-35  S: 0-40. Total scale. Purified mCP.
+%   1 = Mï¿½ller and Rehder,2018						        T:    5-35  S: 0-40. Total scale. Purified mCP.
 %   2 = Liu et al., 2011								    T:    5-35  S: 25-40. Total scale. Purified mCP
 %   3 = Lai et al., 2016                                  	T:    8-30  S: 0. Total scale.  Purified mCP
 %**************************************************************************%
@@ -1475,7 +1475,7 @@ PKI2e2(:,1) = a0 + (a1.*S.^0.5) + (a2.*S.^1.5) +(a3.*S.^2)+(a4.*S.^2.5)...
        + b1.*T.^-1+b2.*S.^1.5.*T.^-1+ b3.*S.^2.*T.^-1+b4.*S.^2.5.*T.^-1....
        + c1.*log(T)+c2.*S.^1.5.*log(T)+c3.*S.^2.*log(T)+c4.*S.^2.5.*log(T)...
        + d1.*T+d2.*S.^0.5.*T + d3.*S.*T + d4.*S.^1.5.*T + d5.*S.^2.*T + d6.*S.^2.5.*T;
-%%%%snesitivity test for e2 value
+%%%%for e2 value
 e2 = ((2.22-2.306)/35).*S+2.306;
 %%%get K2 term from PK2e2 term
 lne2 = log10(e2);
@@ -1499,7 +1499,7 @@ if (Equation ==2);
     d = 0.0781344;
     PKI2e2 = a+b./T+c.*log(T)-d.*T;
   
-%%%%snesitivity test for e2 value
+%%%%for e2 value
 e2 = ((2.22-2.306)/35).*S+2.306;
 
 %%%get K2 term from PK2e2 term
@@ -1523,7 +1523,7 @@ if (Equation ==3);  %Lai's equation for pure water only
     d = -3.543347*1e2;
     PKI2 = a + b.*T + c./T + d.*log(T);
   
-%%%%snesitivity test for e2 value
+%%%%for e2 value
 e2 = 3.1400*1e-5.*(T.^2)-2.0527*1e-2.*T+5.6349;
 KI2 = 10.^(-1*PKI2);
 % 
@@ -1664,7 +1664,7 @@ if (Equation ==3);
     c = -5.024240*1e4;
     d = -3.543347*1e2;
     PKI2 = a + b.*mT + c./mT + d.*log(mT);
-    %%%%snesitivity test for e2 value
+    %%%%for e2 value
     E2 = 3.1400*1e-5.*(mT.^2)-2.0527*1e-2.*mT+5.6349;
     lne2 = log10(E2);
     E1 = 1.5036*1e-7.*(mT.^2)-5.8331*1e-5.*mT+1.0044*1e-2;
