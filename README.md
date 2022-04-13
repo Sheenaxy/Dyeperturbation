@@ -11,3 +11,5 @@ Input the estimated TA, DIC, S range and indictor properties. The function will 
 
 An detailed example of using this code can be found in the supplemental material of [DOI:10.1016/j.marchem.2020.103849](https://www.sciencedirect.com/science/article/abs/pii/S0304420320301031?via%3Dihub)
 
+# Questions?
+Please contact: xinyuli@udel.edu
